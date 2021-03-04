@@ -25,9 +25,16 @@ public class Wekapr {
 
 //       MyAprioriModel model = new MyAprioriModel("D:\\weka\\Weka-3-8-5\\data\\weather.numeric.arff","-N 10 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1","-R 2-3");
 //       model.mineAssociationRules();
-       MyFPGrowthModel model =new MyFPGrowthModel("D:\\weka\\Weka-3-8-5\\data\\weather.nominal.arff","-P 2 -I -1 -N 10 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.2","-N -R first-last");
-      model.mineAssociationRule();
+//       MyFPGrowthModel model =new MyFPGrowthModel("D:\\weka\\Weka-3-8-5\\data\\weather.nominal.arff","-P 2 -I -1 -N 10 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.2","-N -R first-last");
+//      model.mineAssociationRule();
+//       System.out.println(model);
+
+       MyKnowledgeModel model=new MyKnowledgeModel("D:\\weka\\Weka-3-8-5\\data\\iris.arff",null,null);
+       model.trainset=model.divideTrainTestR(model.dataset, 70, false);
+       model.testset=model.divideTrainTestR(model.dataset, 70, true);
        System.out.println(model);
+       System.out.println(model.trainset.toSummaryString());
+       System.out.println(model.testset.toSummaryString());
     }
     
 }
